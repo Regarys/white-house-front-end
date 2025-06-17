@@ -1,0 +1,311 @@
+/* Container - Section */
+.container{
+  display: flex;
+}
+/* Container - Section End */
+
+
+/* Sidebar Section */
+.sidebar{
+  width: 300px;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #2A52BE 4%, #4B9CD3 30%, #CEE3FF);
+  box-shadow: 1px 1px 50px 1px grey;
+}
+
+.sidebar-logo{
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  font-size: 2.7rem;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-container img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.menu {
+  margin: 20px 0px 0px 20px;
+}
+
+.dropdown-toggle{
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.dropdown-toggle:hover {
+  color: #3498db;
+}
+
+.dropdown-content {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.logout{
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  cursor: pointer;
+}
+/* Sidebar Section End */
+/*~~~ @REGARYS */
+
+/* Main Dashboard Section */
+.content-container{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.search-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container input{
+  margin: 20px;
+  border-radius: 10px;
+  height: 40px;
+  width: 80%;
+  font-size: 18px;
+}
+
+.search-container button{
+  border-radius: 10px;
+  height: 45px;
+  width: 70px;
+}
+
+.menu-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.menu-container .menu{
+  margin: 10px;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.menu-container .surat-masuk{
+  background-image: linear-gradient(to left, #28BDFD 23%, #81D8FE 100%);
+  transition: 0.5s ease;
+}
+
+.menu-container .surat-masuk:hover{
+  width: 520px;
+  height: 320px;
+  transition: 0.5s ease;
+}
+
+.menu-container .proposal{
+  background-image: linear-gradient(to left, #E2E201 23%, #F3F399 100%);
+  transition: 0.5s ease;
+}
+
+.menu-container .proposal:hover{
+  width: 520px;
+  height: 320px;
+  transition: 0.5s ease;
+}
+
+.menu-container .lpj{
+  background-image: linear-gradient(to left, #3DED72 23%, #9AF6B6 100%);
+  transition: 0.5s ease;
+}
+
+.menu-container .lpj:hover{
+  width: 520px;
+  height: 320px;
+  transition: 0.5s ease;
+}
+
+.persentage-ovr-container{
+  margin: 50px;
+  background-image: linear-gradient(to left, #0094FF 1%, #CEE4F4 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.persentage-ovr-container h3 {
+  width: 100%;
+}
+
+.persentage-container {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px;
+}
+
+.persentage-container .persentage{
+  height: 100px;
+  width: 100px;
+}
+
+.persentage-container .sm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: conic-gradient(blue 180deg, white 0deg)
+}
+
+.persentage-container .sm::before{
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.persentage-container .proposal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: conic-gradient(yellow 270deg, white 0deg)
+}
+
+.persentage-container .proposal::before{
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.persentage-container .lpj{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: conic-gradient(green 360deg, white 0deg)
+}
+
+.persentage-container .lpj::before{
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.progress-value{
+  position: relative;
+}
+/* main container section end */
+
+/* Login Page Section */
+.container-info{
+  width: 50%;
+  height:100vh;
+  background-image: linear-gradient(38deg, #FFFFFF 0%, #5D8999 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-input{
+  width: 50%;
+  height: 100vh;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-image{
+  width: 734px;
+  height:738px;
+  position: relative;
+}
+
+.container-image img:first-child {
+  width: 90%;
+  height: 90%;
+}
+
+.logo-pemprov-gubsu{
+  position: absolute;
+  bottom: 10px;
+  left: -45px;
+  z-index: 1;
+  width: 270px; 
+}
+
+.container-input p{
+  font-family: "Inter", sans-serif;
+}
+
+.container-input-text{
+  margin: 20px;
+}
+
+.container-input-text input{
+  margin: 10px;
+  width: 696px;
+  height: 76px;
+  border: none;
+  border-radius: 14px;
+  background: #C7C7C7;
+  padding-left: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.container-input button{
+  border: none;
+  width: 191px;
+  height: 68px;
+  color: white;
+  border-radius: 14px;
+  background: #5D8999;
+  font-family: "Inter", sans-serif;
+}
+
+.container-input button:hover{
+  background: #A1BAC4;
+}
+
+.container-input p{
+  cursor: pointer;
+}
+
+.container-input a:hover{
+  color: #A1BAC4;
+}
+
+/* Login Section Ends */
