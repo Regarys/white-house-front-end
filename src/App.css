@@ -4,7 +4,6 @@
 }
 /* Container - Section End */
 
-
 /* Sidebar Section */
 .sidebar{
   width: 300px;
@@ -272,13 +271,15 @@
 }
 
 .container-input-text{
+  display: flex;
   margin: 20px;
+  flex-direction: column;
 }
 
 .container-input-text input{
   margin: 10px;
-  width: 696px;
-  height: 76px;
+  width: 450px;
+  height: 50px;
   border: none;
   border-radius: 14px;
   background: #C7C7C7;
@@ -308,4 +309,48 @@
   color: #A1BAC4;
 }
 
-/* Login Section Ends */
+/* Login Section Ends */  
+
+
+/* Register Section that taken from Login */
+.container-input-text input[type="radio"] {
+  width: auto;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.container-input-text input[type="file"] {
+  background: none;
+  border: none;
+}
+
+.gender-choice {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  font-size: 12px;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.container-input-text .button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.gender-choice p {
+  font-weight: bold;
+}
+
+.gender-label {
+  gap: 4px;
+  height : 50px;
+}
+
+.gender-radio {
+  width: 1px;
+  height: 1px;
+}
+/* Register Section that taken from Login Ends */
