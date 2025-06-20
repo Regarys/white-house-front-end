@@ -325,6 +325,10 @@
   border: none;
 }
 
+.container-input-text .button-file{
+
+}
+
 .gender-choice {
   display: flex;
   flex-direction: row;

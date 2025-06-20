@@ -27,14 +27,14 @@ function RegisterPage() {
     formData.append('username', username);
     formData.append('email', email);
     formData.append('password', password);
-    formData.append('confirmPassword', confirmPassword);
+    formData.append('confirm_password', confirmPassword);
     formData.append('nik', nik);
     formData.append('full_name', fullName);
     formData.append('gender', gender);
     formData.append('address', address);
     formData.append('id_card_photo', file);
     try{
-      const response = await axios.post('http://localhost:8080/api/users/signup', formData, {
+      const response = await axios.post('http://localhost:3000/api/users/signup', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       }
