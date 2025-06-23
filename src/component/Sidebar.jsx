@@ -8,11 +8,15 @@ function Sidebar() {
   return(
     <div className="container">
       <div className="sidebar">
-        <p className="sidebar-logo">KESRA APP</p>
+        <p className="sidebar-logo">Kesra</p>
         <div className="profile-container">
           <img src="/profile.jpg" alt=""/>
-          <p>regar</p>
-          <p>regar@gmail.com</p>
+          <div className="identity-container">
+            <h2>Regar</h2>
+            <div className="email-wrapper" data-email="alsdkfjalsdregar@gmail.com">
+              <p>regar@gmail.com</p>
+            </div>
+          </div>
         </div>
         <div className="menu">
           <h3>Dashboard</h3>

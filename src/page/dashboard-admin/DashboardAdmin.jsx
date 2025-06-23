@@ -28,7 +28,10 @@ function DashboardAdmin() {
               </div>
             </div>
             <div className="sidebar-admin-navigation">
-              <p>check</p>
+              <h2>Dashboard</h2>
+              <h2>Kelola Berkas</h2>
+              <h2>Kelola Pengguna</h2>
+              <h2>Settings</h2>
             </div>
           </div>
           <div className="main-admin">
@@ -46,21 +49,54 @@ function DashboardAdmin() {
               <div className="proposal">
                 <img src="/sm.jpg" alt="surat masuk"/>
                 <div className="overlay orange"></div>
-                <p>LPJ</p>
+                <p>SURAT MASUK</p>
               </div>
             </div>
             <div className="container-info-admin">
-              <div className="persentage-admin">
-                <p><span className="progress-value-admin proposal-p">50%</span></p>
-                <p><span className="progress-value-admin lpj-p">70%</span></p>
-                <p><span className="progress-value-admin sm-p">100%</span></p>
-              </div>
+              <div className="container-persentage-admin">
+                <div className="container-progress-value-admin">
+                  <h3>PROPOSAL</h3>
+                  <div className="progress-value-admin">
+                    <p className="persentage-laporan"><span className="persentage-value">50%</span></p>
+                  </div>
+                </div>
+                <div className="container-progress-value-admin">
+                  <h3>LPJ</h3>
+                  <div className="progress-value-admin proposal-p">
+                    <p className="persentage-lpj"><span className="persentage-value">60%</span></p>
+                  </div>
+                </div>
+                <div className="container-progress-value-admin">
+                  <h3>SURAT MASUK</h3>
+                  <div className="progress-value-admin proposal-p">
+                    <p className="persentage-sm"><span className="persentage-value">90%</span></p>
+                  </div>
+                </div>
+                </div>
               <div className="calendar-admin">
-                <p>hola</p>
+                <h3>SENIN, 3 MARET 2025</h3>
+                <div className="calendar-admin-diagram">
+                  hehe
+                </div>
               </div>
             </div>
             <div className="note-admin">
-              <p>Catatan Terkini</p>
+              <table className="note-admin-table">
+                <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>File</th>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <th>Arsen</th>
+                  <th>Arsen@gmail.com</th>
+                  <th>651238</th>
+                  <th className="file">LPJ</th>
+                </tr>
+              </table>
             </div>
           </div>
         </div>

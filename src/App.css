@@ -6,13 +6,14 @@
 
 /* Sidebar Section */
 .sidebar{
-  width: 300px;
+  width: 350px;
   height: 100vh;
-  background-image: linear-gradient(140deg, #5F7D91 30%, #CEE3FF 90%);
+  background-image: linear-gradient(140deg, rgba(93, 137, 153, 0.95) 49%, #D5E0E4 100%);
   box-shadow: 1px 1px 50px 1px grey;
 }
 
 .sidebar-logo{
+  font-family: 'Archivo Black', sans-serif;
   display: flex;
   font-weight: bold;
   align-items: center;
@@ -23,16 +24,67 @@
 
 .profile-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: rgba(182, 194, 198, 0.8);
+  padding: 30px 0 30px 0;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  margin-right: 20px;
+}
+
+.profile-container h2{
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Archivo', sans-serif;
+}
+
+.profile-container .identity-container .email-wrapper p{
+  color: white;
+  font-family: 'Archivo', sans-serif;
+  max-width: 180px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-container .identity-container .email-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-container .identity-container .email-wrapper::after{
+  content: attr(data-email);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99;
+}
+
+.profile-container .identity-container .email-wrapper:hover::after{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-container img{
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .menu {
@@ -71,15 +123,15 @@
   display:flex;
   flex-direction: column;
   width:100%;
-  font-family: "Playfair Display", serif;
   overflow: hidden;
   background: #B6C2C6;
 }
 
 .content-container h1{
+  font-family: 'Archivo', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  margin: 20px;
+  margin: 40px 0 20px 40px;
 }
 
 .search-container{
@@ -428,7 +480,6 @@
   font-size : 16px;
   border: 1px solid rgba(0,0,0, 0.8);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* efek glow tipis */
-  background-color: #fff;
   outline: none;
 }
 
@@ -486,11 +537,12 @@
   background: rgba(255, 255, 255, 0.6);
   margin: 10px;
   border-radius: 30px;
-  width: 300px;
+  width: 260px;
+  padding: 20px;
 }
 
-.dashboard-admin .sidebar-admin .sidebar-admin-navigation p{
-  margin: 20px;
+.dashboard-admin .sidebar-admin .sidebar-admin-navigation h2{
+  font-weight: 600;
 }
 
 .dashboard-admin .main-admin{
@@ -575,34 +627,152 @@
     1px -1px 0 black,
     -1px  1px 0 black,
     1px  1px 0 black;
+  white-space: nowrap;
 }
 
 .dashboard-admin .main-admin .container-info-admin{
   display: flex;
 
 }
-.dashboard-admin .main-admin .container-info-admin .persentage-admin{
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .container-progress-value-admin h3{
+  font-size : 2rem;
+  font-weight: 600;
+}
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .container-progress-value-admin{
+  text-align: center;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin{
   width: 50%;
-  height: 300px;
+  height: 280px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 30px;
   margin: 0 20px 20px 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin{
+  height: 200px;
+  width: 200px;
+  margin: 20px 40px 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-laporan{
+  height: 180px;
+  width: 180px;
+  background: conic-gradient(#00C8FF 180deg, #A0A4A6 0deg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-laporan::before{
+  content: "";
+  height: 80%;
+  width: 80%;
+  background: #D3D7D9;
+  border-radius: 50%;
+  position: absolute;
+}
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-lpj{
+  height: 180px;
+  width: 180px;
+  background: conic-gradient(#ECFF80 220deg, #A0A4A6 0deg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-lpj::before{
+  content: "";
+  height: 80%;
+  width: 80%;
+  background: #D3D7D9;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-sm{
+  height: 180px;
+  width: 180px;
+  background: conic-gradient(#E27734 320deg, #A0A4A6 0deg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-sm::before{
+  content: "";
+  height: 80%;
+  width: 80%;
+  background: #D3D7D9;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.dashboard-admin .main-admin .container-info-admin .container-persentage-admin .progress-value-admin .persentage-value{
+  position: relative;
 }
 
 .dashboard-admin .main-admin .container-info-admin .calendar-admin{
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.6);
   width: 50%;
-  height: 300px;
+  height: 280px;
   margin-right: 20px;
+  padding: 20px;
+}
+
+.dashboard-admin .main-admin .container-info-admin .calendar-admin h3{
+  font-weight: 600;
+  font-size: 2rem;
+}
+.dashboard-admin .main .container-info-admin. .calendar-admin .calendar-admin-diagram{
+
 }
 
 .dashboard-admin .main-admin .note-admin {
   flex-grow: 1;
-  width: 100%;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 30px;
   box-sizing: border-box;
   margin: 0 20px 0 20px;
-  overflow: auto;
+  overflow-x: auto;
+  padding: 20px;
+  flex-direction: column;
 }
+
+.dashboard-admin .main-admin .note-admin .note-admin-table{
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px;
+  table-layout: auto;
+}
+
+.dashboard-admin .main-admin .note-admin .note-admin-table td,th{
+  border-bottom: 1px solid #000;
+}
+
+.dashboard-admin .main-admin .note-admin .note-admin-table th{
+  padding: 12px 0 12px 0;
+}
+
+
+.dashboard-admin .main-admin .note-admin .note-admin-table .file{
+  background: blue;
+  border-radius: 30px; /*Kalo mau ubah height nya jadikan span ok? */
+}
+
