@@ -34,7 +34,7 @@ function Sidebar() {
               </div>
             )}
           </div>
-          <h3 className="menu-background">Settings</h3>
+          <h3 className="menu-background" onClick={() => navigate('/settings')}>Settings</h3>
         </div>
         <h3 className="logout" onClick={() => navigate('/')}>Logout</h3>
       </div>

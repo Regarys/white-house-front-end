@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useState } from 'react';
+import '../App.css';
+
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -22,10 +24,12 @@ function LoginPage() {
         password
       });
 
-      if (res.data.status === 'success') {
+      if (res.data.status === 'success' && res.data.data.role === 'admin') {
         const userData = res.data.status;
+        navigate('/dashboard-admin');
+      } else if (res.data.status === 'success' && res.data.data.role === 'user'){
         navigate('/dashboard');
-      } else {
+      } else{
         alert(`Login fail : ${res.data.message}`)
       }
 

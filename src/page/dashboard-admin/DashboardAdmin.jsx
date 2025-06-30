@@ -31,6 +31,7 @@ function DashboardAdmin() {
               <h2>Kelola Berkas</h2>
               <h2>Kelola Pengguna</h2>
               <h2>Settings</h2>
+              <h2 className="logout-button">Log Out</h2>
             </div>
           </div>
           <div className="main-admin">

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useState } from 'react';
 
+
 function RegisterPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -34,7 +35,7 @@ function RegisterPage() {
     formData.append('address', address);
     formData.append('id_card_photo', file);
     try{
-      const response = await axios.post('http://localhost:3000/api/users/signup', formData, {
+      const response = await axios.post('http://localhost:8080/api/users/signup', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       }

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
-import Dashboard from './page/dashboard.jsx';
+
 import LoginPage from './page/LoginPage.jsx';
 import RegisterPage from './page/RegisterPage.jsx';
+
+import Dashboard from './page/dashboard.jsx';
 import DashboardAdmin from './page/dashboard-admin/DashboardAdmin.jsx';
 
-import './App.css';
+import SettingPage from './page/settings/SettingPage.jsx';
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/register" element={<RegisterPage/>}/>
           <Route path="/dashboard-admin" element={<DashboardAdmin/>}/>
+          <Route path="/settings" element={<SettingPage/>}/>
         </Routes>
       </BrowserRouter>
     </>
