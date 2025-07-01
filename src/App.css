@@ -656,8 +656,13 @@ body{
 
 .dashboard-admin .sidebar-admin .sidebar-admin-navigation h2{
   font-weight: 600;
+  cursor: pointer;
+  margin: 10px;
 }
 
+.dashboard-admin .sidebar-admin .sidebar-admin-navigation h2:hover{
+  color: cyan;
+}
 .dashboard-admin .main-admin{
   flex: 1;
   display: flex;
@@ -981,7 +986,7 @@ body{
 
 .profile-settings .profile-item-form{
   position: relative;
-  width: 70%;
+  width: 1000px;
 }
 
 .profile-settings .profile-item-form .profile-item{
@@ -1028,10 +1033,10 @@ body{
 }
 
 
-.profile-settings .profile-item-form .profile-item input[type="text"]{
+.profile-settings .profile-item-form .profile-item .full-name input[type="text"]{
   border: 1px solid rgba(0,0,0, 0.5);
   height: 60px;
-  width : 330px;
+  width : 274px;
   background: #D9D9D9;
   border-radius: 10px;
   padding-left: 20px;
@@ -1088,5 +1093,42 @@ body{
   color: white;
   font-size: 1.3rem;
   border-radius: 10px;
-  position: absolute;
+}
+
+
+.profile-settings .profile-item textarea{
+  border: 1px solid rgba(0,0,0, 0.5);
+  height: 80px;
+  width : 100%;
+  max-width: 600px;
+  background: #D9D9D9;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-right: 2rem;
+  padding: 10px;
+  font-family: "Archivo", sans-serif;
+}
+
+/* Settings Section End */
+
+/* User Management Section */
+.container-user-management{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  margin: 0px;
+  text-align: center;
+}
+.container-user-management .user-list table{
+  border-collapse: collapse;
+  font-family: 'Archivo', sans-serif;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.container-user-management .user-list table td,th{
+  border: 1px solid #000;
+  text-align: left;
+  padding: 8px;
 }

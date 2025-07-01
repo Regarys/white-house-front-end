@@ -26,8 +26,10 @@ function ProfileSettings() {
               <label>Full Name</label>
               <p>:</p>
             </div>
-            <input type="text" placeholder="First Name"/>
-            <input type="text" placeholder="Last Name"/>
+            <div className="full-name">
+              <input type="text" placeholder="First Name"/>
+              <input type="text" placeholder="Last Name"/>
+            </div>
           </div>
           <div className="profile-item">
             <div className="profile-item-label">
@@ -52,7 +54,7 @@ function ProfileSettings() {
               <label>Bio</label>
               <p>:</p>
             </div>
-            <input type="text"/>
+            <textarea rows="3"></textarea>
           </div>
           <button type="submit">Submit</button>
         </form>

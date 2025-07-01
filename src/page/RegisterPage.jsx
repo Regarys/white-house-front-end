@@ -33,7 +33,7 @@ function RegisterPage() {
     formData.append('full_name', fullName);
     formData.append('gender', gender);
     formData.append('address', address);
-    formData.append('id_card_photo', file);
+    formData.append('id_card', file);
     try{
       const response = await axios.post('http://localhost:8080/api/users/signup', formData, {
       headers: {
