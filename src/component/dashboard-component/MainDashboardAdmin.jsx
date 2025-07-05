@@ -49,20 +49,24 @@ function MainDashboardAdmin() {
         </div>
         <div className="note-admin">
           <table className="note-admin-table">
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>File</th>
-            </tr>
-            <tr>
-              <th>1</th>
-              <th>Arsen</th>
-              <th>Arsen@gmail.com</th>
-              <th>651238</th>
-              <th className="file">LPJ</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>File</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Arsen</td>
+                <td>Arsen@gmail.com</td>
+                <td>651238</td>
+                <td className="file">LPJ</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

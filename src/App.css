@@ -122,6 +122,7 @@ body{
   font-size: 18px;
   color: white;
   font-weight: 500;
+  cursor: pointer;
 }
 
 
@@ -610,9 +611,8 @@ body{
 
 .sidebar-admin .logout-button{
   position: absolute;
-  bottom: 0;
-  left: 0;
-  margin: 30px;
+  bottom: 15px;
+  left: 20px;
   font-size: 1.3rem;
   cursor: pointer;
 }
@@ -663,7 +663,8 @@ body{
 .dashboard-admin .sidebar-admin .sidebar-admin-navigation h2:hover{
   color: cyan;
 }
-.dashboard-admin .main-admin{
+
+.main-admin{
   flex: 1;
   display: flex;
   width: 100%;
@@ -1112,23 +1113,223 @@ body{
 /* Settings Section End */
 
 /* User Management Section */
-.container-user-management{
+.container-user-management-list{
   box-sizing: border-box;
-  width: 100%;
   height: 100vh;
+  background: rgba(255, 255, 255, 0.5);
   padding: 20px;
-  margin: 0px;
-  text-align: center;
+  margin: 20px 20px 0 20px;
+  border-radius: 30px;
 }
-.container-user-management .user-list table{
+
+.container-user-management-list h1{
+  display: inline-block;
+}
+.container-user-management-list .user-list table{
   border-collapse: collapse;
   font-family: 'Archivo', sans-serif;
   width: 100%;
   margin-top: 20px;
+  max-width : 1550px;
 }
 
-.container-user-management .user-list table td,th{
+.container-user-management-list .user-list table td,th{
   border: 1px solid #000;
   text-align: left;
   padding: 8px;
 }
+/* User Management Section End*/
+
+
+/* User Management Detail Section Start */
+.container-user-management{
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 20px;
+  height: auto;
+  min-height: 86vh;
+  width: 100%;
+}
+
+.container-user-management h1{
+  font-family: 'Archivo', sans-serif;
+  font-size: 4rem;
+  padding: 20px;
+}
+
+.container-user-detail{
+  display: flex;
+  width: 100%;
+}
+
+.custom-container-detail {
+  margin: 0 0 16px 0;
+}
+.custom-container-detail p{
+  background: #E3E3E3;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0, 0.5);
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;}
+
+.custom-container-detail h3{
+  margin: 0 0 5px 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+}
+.custom-container-detail img{
+  background: #E3E3E3;
+  border: 1px solid rgba(0,0,0, 0.5);
+  padding: 20px;
+  height: 405px;
+  width: 616px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.custom-container-detail .address-detail{
+  height: 100px;
+}
+
+.container-left{
+  margin: 0 20px 20px 20px;
+  width: 80%;
+}
+
+.container-right{
+  margin: 0 20px 20px 20px;
+  width: 100%;
+  max-width: 810px;
+}
+
+.button-container-detail{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container-detail button{
+  border: none;
+  width: 180px;
+  height: 65px;
+  background: #2C2C2C;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.button-container-detail button:nth-child(2){
+  background: #B22222;
+}
+
+.button-container-detail button:nth-child(2):hover{
+  background: #C33;
+}
+
+.button-container-detail button:nth-child(1):hover{
+  background: #3a3a3a;
+}
+/* User Management Detail Section End */
+
+/* User Proposal Input Section Start */
+.container-input-proposal{
+  display: flex;
+}
+
+.form-proposal{
+  margin-left: 40px;
+}
+
+.custom-input-proposal{
+  margin: 20px 40px 20px 0;
+}
+
+.custom-input-proposal h3{
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.custom-input-proposal input{
+  background: #D9D9D9;
+  border: none;
+  height: 60px;
+  width: 400px;
+}
+
+.custom-input-proposal-alamat h3{
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.custom-input-proposal-alamat input{
+  background: #D9D9D9;
+  border: none;
+  height: 120px;
+  width: 840px;
+}
+
+.custom-input-file-proposal{
+  background: #D9D9D9;
+  border: none;
+  height: 164px;
+  width: 400px;
+  position: relative;
+}
+
+.custom-input-file-proposal input[type="file"]{
+  display: none;
+}
+
+.custom-input-file-proposal label{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2C2C2C;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  height: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+
+.button-container-proposal {
+  padding: 20px;
+}
+.button-container-proposal button:nth-child(3){
+  background: #D9D9D9;
+  border: 1px solid #000;
+  width: 180px;
+  height: 60px;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-right: 20px;
+  color: #000; 
+}
+
+.button-container-proposal button:nth-child(1){
+  margin: 24px 0 20px 0;
+  background: #2C2C2C;
+  border: 1px solid #000;
+  width: 180px;
+  height: 60px;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+/* User Proposal Input Section End */

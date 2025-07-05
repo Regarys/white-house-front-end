@@ -15,7 +15,7 @@ function LoginPage() {
     } else {
       sendData();
     }
-  } //butuh pop up
+  }
 
   const sendData = async() =>{
       try{
@@ -25,8 +25,8 @@ function LoginPage() {
       });
 
       if (res.data.status === 'success' && res.data.data.role === 'admin') {
-        const userData = res.data.status;
         navigate('/dashboard-admin');
+        localStorage.setItem("token", res.data.data.token);
       } else if (res.data.status === 'success' && res.data.data.role === 'user'){
         navigate('/dashboard');
       } else{

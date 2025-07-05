@@ -17,8 +17,8 @@ function ProfileSettings() {
             <img src="/profile.jpg" alt="foto profile"/>
             <div className="custom-file-upload">
               <SlCloudUpload size={20}/>
+              <input type="file"/>
               <label>Upload Image</label> 
-              <input type="file" value=""/>
             </div>
           </div>
           <div className="profile-item">

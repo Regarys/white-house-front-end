@@ -19,7 +19,7 @@ function Sidebar() {
           </div>
         </div>
         <div className="menu">
-          <h3 className="menu-background">Dashboard</h3>
+          <h3 className="menu-background" onClick={() => navigate('/dashboard')}>Dashboard</h3>
           <div className="dropdown-section">
             <h3
               onClick={() => setToggleKebas(!toggleKebas)}
@@ -28,7 +28,7 @@ function Sidebar() {
             </h3>
             {toggleKebas && (
               <div className="dropdown-content">
-                <p className="background proposal">Kelola Permohonan</p>
+                <p className="background proposal" onClick={()=> navigate('/dashboard/proposal')}>Kelola Permohonan</p>
                 <p className="background lpj">Kelola LPJ</p>
                 <p className="background sm">Kelola Surat Masuk/Keluar</p>
               </div>

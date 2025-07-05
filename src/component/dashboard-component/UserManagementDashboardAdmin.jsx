@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function UserManagementDashboardAdmin() {
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZiZmQzZTNmLTdkMTAtNDhjZC1hZGFjLTZmMTk4NDU5YTgxMSIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJhZG1pbjEyMiIsImlhdCI6MTc1MTM2NzkxNywiZXhwIjoxNzUxNDU0MzE3fQ.fEPY_r6-p0wqBJ8Df8GqhyJFwcxrUmPRL7a5xu3htrw";
   const [ users, setUsers ] = useState([]);
   const navigate = useNavigate();
 
@@ -13,11 +12,9 @@ function UserManagementDashboardAdmin() {
       try{
         const response = await axios.get("http://localhost:8080/api/admin/users", {
           headers :{
-            Authorization : `Bearer ${token}`
+            Authorization : `Bearer ${localStorage.getItem("token")}`
           }
         });
-        console.log(response.data);
-
         setUsers(response.data.data)
       } catch (error) {
         console.error(`Error Fetching Users : ${error}`)
@@ -34,7 +31,7 @@ function UserManagementDashboardAdmin() {
   return(
     <>
       <div className="main-admin">
-        <div className="container-user-management">
+        <div className="container-user-management-list">
           <h1>Kelola User</h1>
           <div className="user-list">
             <table>

@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 
 function MainDashboard() {
+  const navitage = useNavigate();
+
   return(
      <div className="content-container">
        <h1>PROGRES HARIAN</h1>
@@ -13,7 +16,7 @@ function MainDashboard() {
          </a>
       </div>
       <div className="menu-container">
-        <div className="menu proposal">
+        <div className="menu proposal" onClick={() => navitage('/dashboard/proposal')}>
           <p>proposal</p>
         </div>
         <div className="menu lpj">
