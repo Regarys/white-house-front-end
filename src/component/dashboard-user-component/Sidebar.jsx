@@ -26,13 +26,11 @@ function Sidebar() {
               className="dropdown-toggle menu-background"
             >Kelola berkas
             </h3>
-            {toggleKebas && (
-              <div className="dropdown-content">
+              <div className={`dropdown-content ${toggleKebas ? 'open' : ''}`}>
                 <p className="background proposal" onClick={()=> navigate('/dashboard/proposal')}>Kelola Permohonan</p>
                 <p className="background lpj">Kelola LPJ</p>
                 <p className="background sm">Kelola Surat Masuk/Keluar</p>
               </div>
-            )}
           </div>
           <h3 className="menu-background" onClick={() => navigate('/settings')}>Settings</h3>
         </div>

@@ -138,20 +138,22 @@ body{
   background: rgba(148, 113, 90, 0.7);
 }
 
-.dropdown-toggle{
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s;
-}
-
 .dropdown-toggle:hover {
   color: #3498db;
 }
 
 .dropdown-content {
+  max-height: 0;          /* <= ini WAJIB ada */
+  opacity: 0;             /* <= ini juga */
+  overflow: hidden;       /* <= biar kontennya tidak numpuk */
   display: flex;
   flex-direction: column;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.dropdown-content.open {
+  max-height: 500px;
+  opacity: 1;
 }
 
 .logout{
@@ -1308,6 +1310,7 @@ body{
 .button-container-proposal {
   padding: 20px;
 }
+
 .button-container-proposal button:nth-child(3){
   background: #D9D9D9;
   border: 1px solid #000;
@@ -1333,3 +1336,164 @@ body{
 }
 
 /* User Proposal Input Section End */
+
+/* User List View Section Start */
+.table-proposal {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Archivo', sans-serif;
+}
+
+.table-proposal th, .table-proposal td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.table-proposal th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: 600;
+}
+
+.table-proposal tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table-proposal tr:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.table-proposal td {
+  color: #555;
+}
+/* User List View Section End */
+
+/* User Proposal Detail Section Start */
+.detail-proposal-container {
+  margin: 20px 40px 20px 40px;
+  font-family: 'Archivo', sans-serif;
+}
+
+.detail-section-container{
+  display: flex;
+  align-items: flex-start; /* supaya tinggi masing-masing div tidak saling dorong */
+  gap: 40px;
+  position: relative;
+}
+
+.detail-proposal-container .info-container{
+  margin-bottom: 20px;
+}
+
+.detail-proposal-container .info-container h3{
+  font-weight: 500;
+}
+
+.detail-proposal-container .info-container p{
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background: #D9D9D9;
+  width: 400px;
+  height: 60px;
+}
+
+.detail-proposal-container .lampiran-proposal{
+  display: flex;
+  height: 60px;
+  background: #D9D9D9;
+  width: 420px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.detail-proposal-container .lampiran-proposal:hover{
+  background: red;
+}
+
+.detail-proposal-container .lampiran-proposal p:hover{
+  background: red;
+}
+
+.detail-proposal-container .lampiran-proposal img{
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+}
+
+.detail-proposal-container .pdf-container {
+  width: 400px;
+}
+
+.detail-proposal-container .info-container-alamat h3{
+  font-weight: 500;
+}
+
+.detail-proposal-container .info-container-alamat p{
+  display: flex;
+  padding: 20px;
+  background: #D9D9D9;
+  width: 840px;
+  height: 120px;
+}
+
+.detail-proposal-container .detail-end-container {
+  display: flex;
+  flex-direction: column;
+}
+/* User Proposal Detail Section End */
+
+/* Drop Down Section Start */
+.dropdown {
+  margin-bottom: 1rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+}
+
+.dropdown .dropdown-toggle {
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 1rem;
+  background: #D9D9D9;
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown .dropdown-toggle:hover {
+  background: #ddd;
+}
+
+.dropdown .dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown .dropdown-content p{
+  border: 1px solid #ccc;
+  min-height: 40px;
+  background: #D9D9D9;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.dropdown .dropdown-content p:hover{
+  background: #ddd;
+  color: #3498db;
+}
+
+.dropdown .dropdown-content.open {
+  max-height: 200px;
+  opacity: 1;
+  overflow-y: auto;
+}
