@@ -8,7 +8,7 @@ function InputProposal() {
   const navigate = useNavigate();
 
 
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4NTc3NjE2LTQwOGUtNGM5NS04MGNhLTYxZWUxYmVjZDExMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMTY1NDg4LCJleHAiOjE3NTIyNTE4ODh9.3s30MIWA_XIDWb4Tb7xxJNIaED_kbO057dmJJwTX-9Q"
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
 
   const [ bagian, setBagian ] = useState('');
   const [ suratDari, setSuratDari ] = useState('');
@@ -21,7 +21,15 @@ function InputProposal() {
   const [ nominalHibah, setNominalHibah ] = useState('');
   const [ fileScan, setFileScan ]  = useState(null);
 
-  const [ pilihBagian, setPilihBagian] = useState([]);
+
+  const [ optionKabupatenKota, setOptionKabupatenKota ] = useState('');
+  const [ pilihKotaKabupaten, setPilihKotaKabupaten] = useState([]);
+  const bagianOptions = [
+    { id: 1, name: "Pendidikan" },
+    { id: 2, name: "Agama" },
+    { id: 3, name: "Lembaga" }
+  ];
+  const [selectedBagianName, setSelectedBagianName] = useState("");
 
   useEffect(()=>{
     async function fetchData() {
@@ -31,8 +39,8 @@ function InputProposal() {
             Authorization : `Bearer ${token}`
           }
         });
-        setPilihBagian(response.data)
-        console.log(response.data);
+        setPilihKotaKabupaten(response.data.data)
+        console.log(response.data.data);
       } catch (error) {
         console.error(`Error Fetching Users : ${error}`)
       }
@@ -61,7 +69,7 @@ function InputProposal() {
       if (fileScan) {
         formData.append('scan_surat_permohonan', fileScan);
       }
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4NTc3NjE2LTQwOGUtNGM5NS04MGNhLTYxZWUxYmVjZDExMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMTIwODYyLCJleHAiOjE3NTIyMDcyNjJ9.Ve7Zo2pHdOgAhhaH7vGPI8-61riuBWjidbvLpbYz8HA"
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
       // const token = localStorage.getItem('token'); // ganti sesuai tempat kamu simpan token
       const response = await axios.post('http://localhost:8080/api/proposal/add/hibah', formData, {
         headers: {
@@ -87,11 +95,19 @@ function InputProposal() {
             <div className="left-section">
               <div className="custom-input-proposal">
                 <h3>Bagian</h3>
-                  <input
-                    type="text"
-                    value={bagian}
-                    onChange={(e) => setBagian(e.target.value)}
-                  />
+                <Dropdown label={selectedBagianName || "Pilih Bagian"}>
+                  {bagianOptions.map(item => (
+                    <p
+                      key={item.id}
+                      onClick={() => {
+                        setBagian(item.id);
+                        setSelectedBagianName(item.name);
+                      }}
+                    >
+                      {item.name}
+                    </p>
+                  ))}
+                </Dropdown>
               </div>
               <div className="custom-input-proposal">
                 <h3>Surat Dari</h3>
@@ -103,12 +119,13 @@ function InputProposal() {
               </div>
               <div className="custom-input-proposal">
                 <h3>Kabupaten/Kota</h3>
-                <Dropdown label={kabupatenKota|| "Pilih Bagian"}>
-                  {pilihBagian.map((item) => (
+                <Dropdown label={optionKabupatenKota|| "Pilih ..."}>
+                  {pilihKotaKabupaten.map((item) => (
                     <p
                       key={item.regencies_id}
                       onClick={() => {
-                        setKabupatenKota(item.named);
+                        setOptionKabupatenKota(item.named);
+                        setKabupatenKota(item.regencies_id);
                       }}
                     >
                       {item.type} {item.named}

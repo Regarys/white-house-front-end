@@ -1,3 +1,4 @@
+import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -11,14 +12,14 @@ function DetailProposal () {
   const { proposalId } = useParams();
   const [ data, setData ] = useState([]);
   const [ numberPage, setNumberPage ] = useState(1);
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4NTc3NjE2LTQwOGUtNGM5NS04MGNhLTYxZWUxYmVjZDExMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMTY1NDg4LCJleHAiOjE3NTIyNTE4ODh9.3s30MIWA_XIDWb4Tb7xxJNIaED_kbO057dmJJwTX-9Q"
-
+  const [ totalPage, setTotalPage ] = useState(null);
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
 
   console.log(proposalId);
    useEffect(()=>{
      async function fetchData() {
        try{
-         const response = await axios.get(`http://localhost:8080/api/proposal/${proposalId}/get/proposal`, {
+         const response = await axios.get(`http://localhost:8080/api/proposal/${proposalId}/get`, {
            headers :{
              Authorization : `Bearer ${token}`
            }
@@ -33,9 +34,6 @@ function DetailProposal () {
 
    }, [])
 
-  const pageNumber = () =>{
-    setNumberPage((number)=> number + 1);
-  }
 
   return(
     <>
@@ -85,16 +83,17 @@ function DetailProposal () {
             <div className="detail-end-container">
               <div className="pdf-container" style={{ border: "1px solid #ccc", maxHeight: "700px", width: "550px", overflow: "auto", position: "absolute", top: "20px", right: "20px"}}>
                 {activeFileUrl ? (
-                  <Document file={activeFileUrl}>
+                  <Document file={activeFileUrl} onLoadSuccess={({ numPages }) => setTotalPage(numPages)}>
                     <Page pageNumber={numberPage} renderTextLayer={false} renderAnnotationLayer={false} width={550} />
                   </Document>
                 ) : (
                     <p>Silakan pilih lampiran untuk ditampilkan.</p>
                   )}
-              </div>
-              <div>
-                <button onClick={() => pageNumber()}>Next</button>
-                <button onClick={() => pageNumber()}>Next</button>
+                <div className="button-pdf-container">
+                  <SlArrowLeftCircle onClick={() => setNumberPage((number) => Math.max(number - 1, 1)) }/>
+                  <SlArrowRightCircle onClick={() => setNumberPage((number) => Math.min(number + 1, totalPage)) }/>
+                </div>
+                <p>Page :{numberPage} - {totalPage}</p>
               </div>
             </div>
           </div>

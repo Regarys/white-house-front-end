@@ -6,12 +6,12 @@ function ListViewProposal () {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
 
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4NTc3NjE2LTQwOGUtNGM5NS04MGNhLTYxZWUxYmVjZDExMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMTY1NDg4LCJleHAiOjE3NTIyNTE4ODh9.3s30MIWA_XIDWb4Tb7xxJNIaED_kbO057dmJJwTX-9Q"
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
   useEffect(()=>{
 
     async function fetchData() {
       try{
-        const response = await axios.get("http://localhost:8080/api/proposal/list/proposal", {
+        const response = await axios.get("http://localhost:8080/api/proposal/list", {
           headers :{
             Authorization : `Bearer ${token}`
             //Authorization : `Bearer ${localStorage.getItem("token")}`
