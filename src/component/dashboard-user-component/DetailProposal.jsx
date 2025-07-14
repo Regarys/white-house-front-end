@@ -13,7 +13,7 @@ function DetailProposal () {
   const [ data, setData ] = useState([]);
   const [ numberPage, setNumberPage ] = useState(1);
   const [ totalPage, setTotalPage ] = useState(null);
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
+  const token = localStorage.getItem("token");
 
   console.log(proposalId);
    useEffect(()=>{
@@ -93,7 +93,7 @@ function DetailProposal () {
                   <SlArrowLeftCircle onClick={() => setNumberPage((number) => Math.max(number - 1, 1)) }/>
                   <SlArrowRightCircle onClick={() => setNumberPage((number) => Math.min(number + 1, totalPage)) }/>
                 </div>
-                <p>Page :{numberPage} - {totalPage}</p>
+                <p>Page : {numberPage} - {totalPage}</p>
               </div>
             </div>
           </div>

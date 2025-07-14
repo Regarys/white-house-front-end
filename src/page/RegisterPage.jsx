@@ -40,9 +40,11 @@ function RegisterPage() {
         'Content-Type': 'multipart/form-data',
       }
       });
+      alert('Pendaftaran Berhasil')
       console.log(response.data);
     } catch (error){
       console.error('Error Details:', error.response ? error.response.data : error.message); 
+      alert('ada yang salah kontol')
     }
   }
 

@@ -1,9 +1,14 @@
 import { useState } from 'react'; // can you gar search something simpler than just writing this import everytime?
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar() {
   const [ toggleKebas, setToggleKebas ] = useState(false);
   const navigate = useNavigate();
+
+  const logOutButton = () => {
+    navigate("/");
+    localStorage.clear();
+  }
 
   return(
     <div className="container">
@@ -20,21 +25,19 @@ function Sidebar() {
         </div>
         <div className="menu">
           <h3 className="menu-background" onClick={() => navigate('/dashboard')}>Dashboard</h3>
-          <div className="dropdown-section">
             <h3
               onClick={() => setToggleKebas(!toggleKebas)}
               className="dropdown-toggle menu-background"
             >Kelola berkas
             </h3>
-              <div className={`dropdown-content ${toggleKebas ? 'open' : ''}`}>
+              <divl className={`dropdown-content ${toggleKebas ? 'open' : ''}`}>
                 <p className="background proposal" onClick={()=> navigate('/dashboard/proposal')}>Kelola Permohonan</p>
                 <p className="background lpj">Kelola LPJ</p>
                 <p className="background sm">Kelola Surat Masuk/Keluar</p>
-              </div>
-          </div>
+              </divl>
           <h3 className="menu-background" onClick={() => navigate('/settings')}>Settings</h3>
         </div>
-        <h3 className="logout" onClick={() => navigate('/')}>Logout</h3>
+        <h3 className="logout" onClick={() => logOutButton()}>Logout</h3>
       </div>
     </div>
   )

@@ -1,11 +1,17 @@
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 function MainDashboardAdmin() {
+  const navigate = useNavigate();
+
   return(
   <>
     <div className="main-admin">
       <div className="file-buttons">
-        <div className="proposal">
+        <div className="proposal" onClick={() => navigate('/dashboard-admin/proposal')}>
           <img src="/propsal.jpg" alt="proposal"/>
-          <div className="overlay blue"></div>
+          <div className="overlay blue" ></div>
           <p>PROPOSAL</p>
         </div>
         <div className="proposal">
@@ -15,8 +21,8 @@ function MainDashboardAdmin() {
         </div>
         <div className="proposal">
           <img src="/sm.jpg" alt="surat masuk"/>
-          <div className="overlay orange"></div>
-          <p>SURAT MASUK</p>
+          <div className="overlay orange" onClick={() => navigate('/dashboard-admin/surat')}></div>
+          <p>SURAT</p>
         </div>
       </div>
       <div className="container-info-admin">

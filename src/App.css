@@ -142,7 +142,7 @@ body{
   color: #3498db;
 }
 
-.dropdown-content {
+.menu .dropdown-content {
   max-height: 0;          /* <= ini WAJIB ada */
   opacity: 0;             /* <= ini juga */
   overflow: hidden;       /* <= biar kontennya tidak numpuk */
@@ -151,7 +151,7 @@ body{
   transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
-.dropdown-content.open {
+.menu .dropdown-content.open {
   max-height: 500px;
   opacity: 1;
 }
@@ -611,6 +611,10 @@ body{
   position: relative;
 }
 
+.sidebar-admin .menu-sidebar-admin{
+  margin: 10px;
+}
+
 .sidebar-admin .logout-button{
   position: absolute;
   bottom: 15px;
@@ -659,13 +663,40 @@ body{
 .dashboard-admin .sidebar-admin .sidebar-admin-navigation h2{
   font-weight: 600;
   cursor: pointer;
-  margin: 10px;
 }
 
 .dashboard-admin .sidebar-admin .sidebar-admin-navigation h2:hover{
   color: cyan;
 }
 
+.sidebar-admin .dropdown-content-berkas {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.sidebar-admin .dropdown-content-berkas.open {
+  max-height: 200px; 
+  opacity: 1;
+}
+
+.sidebar-admin .dropdown-content-berkas p{
+  margin: 3px;
+  padding-left: 5px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.sidebar-admin .dropdown-content-berkas p:hover{
+  color: cyan;
+  transition: 0.4s ease ;
+  background: rgba(0,0,0, 0.5);
+}
 .main-admin{
   flex: 1;
   display: flex;
@@ -1248,7 +1279,7 @@ body{
 }
 
 .custom-input-proposal{
-  margin: 20px 40px 20px 0;
+  margin: 0 40px 20px 0;
 }
 
 .custom-input-proposal h3{
@@ -1309,9 +1340,10 @@ body{
 
 .button-container-proposal {
   padding: 20px;
+  display: flex;
 }
 
-.button-container-proposal button:nth-child(3){
+.button-container-proposal button:nth-child(2){
   background: #D9D9D9;
   border: 1px solid #000;
   width: 180px;
@@ -1319,12 +1351,12 @@ body{
   color: white;
   font-size: 1.3rem;
   border-radius: 10px;
-  margin-right: 20px;
   color: #000; 
 }
 
 .button-container-proposal button:nth-child(1){
-  margin: 24px 0 20px 0;
+  margin-right: 20px;
+  margin-left: 20px;
   background: #2C2C2C;
   border: 1px solid #000;
   width: 180px;
@@ -1332,7 +1364,6 @@ body{
   color: white;
   font-size: 1.3rem;
   border-radius: 10px;
-  margin-right: 20px;
 }
 
 /* User Proposal Input Section End */
@@ -1505,7 +1536,7 @@ body{
   user-select: none;
   padding: 0.5rem 1rem;
   background: #D9D9D9;
-  height: 45px;
+  height: 42px;
   display: flex;
   align-items: center;
 }
@@ -1519,7 +1550,6 @@ body{
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
-  display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -1545,3 +1575,240 @@ body{
   overflow-y: auto;
 }
 /* Drop Down Section End */
+
+/* Surat Masuk Section Start */
+.container-surat{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  font-family: 'Archivo', sans-serif;
+}
+
+.container-surat .container-surat-inside{
+  background: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.container-surat .left-section-surat{
+  width: 60%;
+}
+
+.container-surat .input-surat input{
+  border: none;
+  padding: 10px;
+  background: #E3E3E3;
+  height: 40px;
+  width: 94%;
+  border-radius: 12px;
+}
+
+.container-surat .input-surat{
+  margin-top: 20px;
+}
+
+.container-surat h3{
+  font-size: 20px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.container-surat .right-section-surat{
+  width: 35%;
+}
+
+.container-surat .right-section-surat .input-surat-radio{
+
+}
+
+.container-surat .container-pdf-surat{
+  background: #D9D9D9;
+  height: 90%;
+  margin: 0 20px 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.pdf-surat{
+  width: 850px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.input-surat-radio {
+  margin-bottom: 1rem;
+  margin-top: 20px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.radio-option:hover {
+  background-color: #f0f0f0;
+  border-color: #aaa;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: #007bff;
+}
+
+.container-surat button:nth-child(1){
+  border: none;
+  width: 180px;
+  height: 65px;
+  background: #2C2C2C;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+
+.container-surat button:nth-child(2){
+  background: #D9D9D9;
+  border: 1px solid #000;
+  width: 180px;
+  height: 60px;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-right: 20px;
+  color: #000;
+}
+
+/* Surat Masuk Section End */
+
+
+/* Proposal View Admin Start */
+.admin-proposal-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  font-family: 'Archivo', sans-serif;
+}
+
+.admin-proposal-container h1{
+  font-size: 4rem;
+  margin-left: 20px;
+}
+.admin-proposal-container .admin-proposal-container-inside{
+  background: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.admin-proposal-container .container-list-hibah {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.admin-proposal-container .list-hibah {
+  width: 80%;
+  height: 250px;
+  margin: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.admin-proposal-container .list-hibah:hover h3{
+  font-size: 5rem;
+  transition: 0.5s ease;
+}
+
+.admin-proposal-container .list-hibah img{
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.admin-proposal-container .list-hibah h3{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+/* Proposal View Admin End */
+
+/* List Proposal View Admin Start */
+.admin-container-proposal-hibah {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  font-family: 'Archivo', sans-serif;
+}
+
+.admin-container-proposal-hibah h1{
+  font-size: 3rem;
+  margin-left: 20px;
+}
+
+.admin-container-proposal-hibah .admin-container-proposal-hibah-inside{
+  background: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+/* List Proposal View Admin End */
+
+/* Input Proposal Admin End */
+.admin-input-proposal{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  font-family: 'Archivo', sans-serif;
+}
+
+
+.admin-input-proposal h1{
+  margin: 20px 0 30px 40px;
+}
+
+.admin-input-proposal-inside{
+  background: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+/* Input Proposal Admin End */

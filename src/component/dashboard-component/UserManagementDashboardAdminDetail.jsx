@@ -29,6 +29,28 @@ function UserManagementDashboardAdminDetail(){
     }
   };
 
+  const handleSuspend = async () => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:8080/api/admin/${user.user_id}/suspend`,
+      { suspend: !user.suspend },
+        {
+          headers: {
+            Authorization : `Bearer ${localStorage.getItem("token")}`
+          }
+        }
+      );
+      console.log("Response status:", response.status);
+      console.log("Response data:", response.data);
+      alert(`User berhasil ${user.suspend ? "diaktifkan kembali" : "di-suspend"}!`);
+      navigate(-1);
+    } catch (error) {
+      console.error(error);
+      alert("Gagal suspend user.");
+    }
+  };
+
+
   console.log(user);
   return(
     <>
@@ -58,19 +80,25 @@ function UserManagementDashboardAdminDetail(){
               <h3>Gender</h3>
               <p>{user.gender}</p>
             </div>
+            <div style={{display : "flex"}}>
+              <div className="custom-container-detail" style={{width: "100%", marginRight: "10px"}}>
+                <h3>Status</h3>
+                <p>{user.is_verified ? 'Verified' : 'Not Verified'}</p>
+              </div>
+              <div className="custom-container-detail" style={{width: "100%", marginLeft: "10px"}}>
+                <h3>Suspend</h3>
+                <p>{user.suspend ? 'User Suspened' : 'User Active'}</p>
+              </div>
+            </div>
             <div className="custom-container-detail">
               <h3>Adress</h3>
               <p className="address-detail">{user.address}</p>
             </div>
-            <div className="custom-container-detail">
-              <h3>Status</h3>
-              <p>{user.is_verified ? 'Verified' : 'Not Verified'}</p>
-            </div>
           </div>
         </div>
         <div className="button-container-detail">
-          <button type="button" onClick={handleVerify}>Verified</button>
-          <button type="button">Suspend</button>
+          <button type="button" onClick={handleVerify} style={{display : `${user.is_verified ? 'none': ''}` }}>Verified</button>
+          <button type="button" onClick={handleSuspend} style={{ background : `${user.suspend ? 'green' : ''}`}}>{ user.suspend ? "Un Suspend" : "Suspend" }</button>
         </div>
       </div>
     </>

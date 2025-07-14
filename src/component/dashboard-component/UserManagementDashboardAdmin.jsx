@@ -16,6 +16,7 @@ function UserManagementDashboardAdmin() {
           }
         });
         setUsers(response.data.data)
+        console.log(response.data.data)
       } catch (error) {
         console.error(`Error Fetching Users : ${error}`)
       }
@@ -42,6 +43,7 @@ function UserManagementDashboardAdmin() {
                   <th>Nik</th>
                   <th>Email</th>
                   <th>Status</th>
+                  <th>Suspended</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -53,6 +55,7 @@ function UserManagementDashboardAdmin() {
                     <td>{user.nik}</td>
                     <td>{user.email}</td>
                     <td>{user.is_verified ? 'Verified' : 'Not Verified'}</td>
+                    <td>{user.suspend ? 'Suspended' : 'Not Suspended'}</td>
                     <td><button onClick={() => handleData(user)}>Edit</button></td>
                   </tr>
                 ))}

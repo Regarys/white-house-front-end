@@ -1,6 +1,9 @@
 import { SlGlobe, SlUser, SlLock, SlSettings } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 
 function SidebarSetings() {
+  const navigate = useNavigate();
+
   return(
   <div className="sidebar-settings">
       <div className="settings-name-container">
@@ -25,7 +28,7 @@ function SidebarSetings() {
           <p>Language</p>
         </div>
       </div>
-      <button>BACK</button>
+      <button onClick={() => navigate(-1)}>BACK</button>
   </div>
   )
 }

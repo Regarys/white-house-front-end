@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
+import { jwtDecode } from 'jwt-decode'
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 
 
@@ -8,6 +9,22 @@ function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      const decoded = jwtDecode(token);
+      console.log(decoded);
+      if (decoded.role === 'admin') {
+        navigate('/dashboard-admin');
+      } else if (decoded.role === 'user'){
+        navigate('/dashboard')
+      }
+    } else {
+      navigate('/');
+    }
+  }, [navigate, token]);
+
 
   const loginButton = () =>{
     if (email === "" && password === ""){
@@ -16,6 +33,8 @@ function LoginPage() {
       sendData();
     }
   }
+  
+
 
   const sendData = async() =>{
       try{
@@ -29,6 +48,8 @@ function LoginPage() {
         localStorage.setItem("token", res.data.data.token);
       } else if (res.data.status === 'success' && res.data.data.role === 'user'){
         navigate('/dashboard');
+        localStorage.setItem("token", res.data.data.token);
+        console.log(res.data.data);
       } else{
         alert(`Login fail : ${res.data.message}`)
       }

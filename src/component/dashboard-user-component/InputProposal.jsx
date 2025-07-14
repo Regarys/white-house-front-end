@@ -7,9 +7,6 @@ import Dropdown from '../../component/interaction/Dropdown.jsx'
 function InputProposal() {
   const navigate = useNavigate();
 
-
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
-
   const [ bagian, setBagian ] = useState('');
   const [ suratDari, setSuratDari ] = useState('');
   const [ kabupatenKota, setKabupatenKota ] = useState('');
@@ -25,8 +22,8 @@ function InputProposal() {
   const [ optionKabupatenKota, setOptionKabupatenKota ] = useState('');
   const [ pilihKotaKabupaten, setPilihKotaKabupaten] = useState([]);
   const bagianOptions = [
-    { id: 1, name: "Pendidikan" },
-    { id: 2, name: "Agama" },
+    { id: 1, name: "Agama" },
+    { id: 2, name: "Pendidikan" },
     { id: 3, name: "Lembaga" }
   ];
   const [selectedBagianName, setSelectedBagianName] = useState("");
@@ -36,7 +33,7 @@ function InputProposal() {
       try{
         const response = await axios.get(`http://localhost:8080/api/address/regencies`, {
           headers :{
-            Authorization : `Bearer ${token}`
+            Authorization : `Bearer ${localStorage.getItem("token")}`
           }
         });
         setPilihKotaKabupaten(response.data.data)
@@ -48,8 +45,6 @@ function InputProposal() {
     fetchData();
 
   }, [])
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,11 +64,9 @@ function InputProposal() {
       if (fileScan) {
         formData.append('scan_surat_permohonan', fileScan);
       }
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmNzdmM2ZiLWU4ZDktNDhmYy04MjBmLTg4MDI3MTdhNjdlOCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InJlZ2FyIiwiaWF0IjoxNzUyMjIyNDk3LCJleHAiOjE3NTIzMDg4OTd9.ADw6Ys9Zl_q6pu9iPZ0hZUQTqc0GhUcSQQhqF9tvtps"
-      // const token = localStorage.getItem('token'); // ganti sesuai tempat kamu simpan token
       const response = await axios.post('http://localhost:8080/api/proposal/add/hibah', formData, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
           'Content-Type': 'multipart/form-data'
         }
       });
